@@ -48,6 +48,15 @@ AUTO_DELETE_TIME = int(environ.get("AUTO_DELETE_TIME", "1800")) # Time in Second
 # Channel Information
 LOG_CHANNEL = int(environ.get("LOG_CHANNEL", "-1002348067453"))
 
+# Forwarding Information
+FORWARD_ENABLED = is_enabled(environ.get('FORWARD_ENABLED', "False"), False)
+FORWARD_SOURCE_CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('FORWARD_SOURCE_CHANNELS', '').split()]
+FORWARD_DESTINATION_CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('FORWARD_DESTINATION_CHANNELS', '').split()]
+FORWARD_FILTER_KEYWORDS = [keyword.strip() for keyword in environ.get('FORWARD_FILTER_KEYWORDS', '').split(',')]
+FORWARD_AS_COPY = is_enabled(environ.get('FORWARD_AS_COPY', "False"), False)
+FORWARD_HEADER = environ.get('FORWARD_HEADER', '')
+FORWARD_FOOTER = environ.get('FORWARD_FOOTER', '')
+
 # File Caption Information
 CUSTOM_FILE_CAPTION = environ.get("CUSTOM_FILE_CAPTION", f"{script.CAPTION}")
 BATCH_FILE_CAPTION = environ.get("BATCH_FILE_CAPTION", CUSTOM_FILE_CAPTION)

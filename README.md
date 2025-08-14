@@ -22,6 +22,7 @@
 - [x] Batch Support Added, Any User Can Use Batch By Making Bot Admin In His File Store Channel
 - [x] Auto Delete Feature Added
 - [x] Custom Start Message With Picture And Buttons
+- [x] Advanced Forwarding
 </b>
 </details>
 
@@ -71,6 +72,20 @@
 - `/api` : By This Command You Can Set Your Url Shortner Api [Use Like This /api (your api key)]
 - `/deletecloned` : By This Command You Can Delete Your Cloned Bot [Use Like This /deletecloned (your bot token)]
 - `/broadcast` : By Using This Command You Can Broadcast A Message To Your Bot User, Reply This Command To Broadcast Message [Owner Only Command]
+
+🖍️ Forwarding Commands (Admin Only) :-
+
+- `/fwd_status`: Show forwarding status.
+- `/fwd_toggle`: Enable/disable forwarding.
+- `/fwd_add_source <chat_id>`: Add a source channel.
+- `/fwd_rem_source <chat_id>`: Remove a source channel.
+- `/fwd_add_dest <chat_id>`: Add a destination channel.
+- `/fwd_rem_dest <chat_id>`: Remove a destination channel.
+- `/fwd_add_keyword <keyword>`: Add a filter keyword.
+- `/fwd_rem_keyword <keyword>`: Remove a filter keyword.
+- `/fwd_set_header <text>`: Set a header.
+- `/fwd_set_footer <text>`: Set a footer.
+- `/fwd_toggle_copy`: Toggle forward as copy.
 
 🖍️ Clone Bot Commands :- 
 
