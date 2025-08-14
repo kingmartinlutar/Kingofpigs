@@ -59,5 +59,26 @@ class Database:
     async def delete_user(self, user_id):
         await self.col.delete_many({'id': int(user_id)})
 
+    async def get_forward_settings(self):
+        settings = await self.col.find_one({'_id': 'forward_settings'})
+        if not settings:
+            return {
+                "enabled": False,
+                "source_channels": [],
+                "destination_channels": [],
+                "filter_keywords": [],
+                "as_copy": False,
+                "header": "",
+                "footer": ""
+            }
+        return settings
+
+    async def update_forward_settings(self, settings):
+        await self.col.update_one(
+            {'_id': 'forward_settings'},
+            {'$set': settings},
+            upsert=True
+        )
+
 
 db = Database(DATABASE_URI, DATABASE_NAME)
